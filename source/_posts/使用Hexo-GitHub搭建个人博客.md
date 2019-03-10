@@ -1,5 +1,5 @@
 ---
-title: 使用Hexo+GitHub搭建博客
+title: 使用Hexo-GitHub搭建个人博客
 categories:
   - Note
   - hexo
@@ -7,14 +7,14 @@ tags:
   - blog
   - hexo
   - gitpage
-date: 2019-03-09 17:11:08
+date: 2019-03-10 12:29:56
 ---
-
-# 使用 Hexo + GitHub 搭建博客
 
 决定搭建博客了，往上大致浏览以后，决定使用`Hexo`来搭建自己的博客，结合`GitPage`方便的部署，可以很方便的查看
 
 ## Hexo&&GitPage
+
+![图片](/使用Hexo-GitHub搭建个人博客/13_2.jpg)
 
 [Hexo](https://hexo.io/zh-cn/) —— 快速、简洁且高效的博客框架。基于 Node.js,支持 Markdown,有丰富的插件,也可以快速部署到 GitPage。
 
