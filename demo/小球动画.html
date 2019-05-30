@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      .car {
+        width: 120px;
+        height: 40px;
+        background-color: rgb(249, 5, 103);
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <!-- 测试小球的动画，使用Vue自带的transition元素 -->
+      <button @click="flag = !flag">车来了</button>
+      <transition
+        @before-enter="beforeEnter"
+        @enter="enter"
+        @after-enter="afterEnter"
+      >
+        <div class="car" v-show="flag">车速很快</div>
+      </transition>
+    </div>
+    <script>
+      var app = new Vue({
+        el: ".app",
+        data: {
+          flag: false
+        },
+        methods: {
+          beforeEnter(el) {
+            el.style.transform = "translate(0,0)";
+          },
+          enter(el, done) {
+            el.offsetWidth;
+            el.style.transform = "translate(350px,0)";
+            el.style.transition = "all 400ms ease";
+            done();
+          },
+          afterEnter(el) {
+            this.flag = !this.flag;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
