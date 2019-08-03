@@ -96,22 +96,18 @@
 
 
 
-  <meta name="description" content="拼音到底应该怎么打昨晚在刷知乎的时候看到一个有意思的东西，说不定以后可能会用到。 关于拼英怎么显示的问题。 之前有自己想过，如果让我自己去实现拼音的显示，大致的思路可能就是调整文本的行高。对每个文字增加伪元素或者写额外的拼音元素用定位来进行展示。 昨天看到了另外一种展示的方法。 使用&amp;lt;ruby&amp;gt;元素来进行展示。 Demo: 1234567891011&amp;lt;html&amp;gt;  &amp;lt;">
+  <meta name="description" content="VueRouter 学习笔记之在 Webpack(4.X) 上的坑通常 VueRouter 给我们提供了常用的两种方式的使用  hash 模式在 url 中有 # 号的存在，不美观，也不利于 SEO ，部署没有成本，用户向服务器发送请求时，浏览器会忽略 # 后面的值。刷新时不会重新请求。  history 模式url 看起来是正常的，会向服务器发送请求。所以在刷新的时候，会向服务器发送对应路径的请">
 <meta name="keywords" content="note">
 <meta property="og:type" content="article">
-<meta property="og:title" content="拼音">
-<meta property="og:url" content="https://nanpangyou.github.io/2019/05/27/拼音/index.html">
+<meta property="og:title" content="VueRouter在Webpack上的坑">
+<meta property="og:url" content="https://nanpangyou.github.io/2019/08/02/VueRouter在Webpack上的坑/index.html">
 <meta property="og:site_name" content="这里是男胖友">
-<meta property="og:description" content="拼音到底应该怎么打昨晚在刷知乎的时候看到一个有意思的东西，说不定以后可能会用到。 关于拼英怎么显示的问题。 之前有自己想过，如果让我自己去实现拼音的显示，大致的思路可能就是调整文本的行高。对每个文字增加伪元素或者写额外的拼音元素用定位来进行展示。 昨天看到了另外一种展示的方法。 使用&amp;lt;ruby&amp;gt;元素来进行展示。 Demo: 1234567891011&amp;lt;html&amp;gt;  &amp;lt;">
+<meta property="og:description" content="VueRouter 学习笔记之在 Webpack(4.X) 上的坑通常 VueRouter 给我们提供了常用的两种方式的使用  hash 模式在 url 中有 # 号的存在，不美观，也不利于 SEO ，部署没有成本，用户向服务器发送请求时，浏览器会忽略 # 后面的值。刷新时不会重新请求。  history 模式url 看起来是正常的，会向服务器发送请求。所以在刷新的时候，会向服务器发送对应路径的请">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://nanpangyou.github.io/2019/05/27/拼音/demo1.png">
-<meta property="og:image" content="https://nanpangyou.github.io/2019/05/27/拼音/demo2.jpg">
-<meta property="og:image" content="https://nanpangyou.github.io/2019/05/27/拼音/demo3.jpg">
-<meta property="og:updated_time" content="2019-05-27T09:50:06.448Z">
+<meta property="og:updated_time" content="2019-08-03T02:52:11.133Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="拼音">
-<meta name="twitter:description" content="拼音到底应该怎么打昨晚在刷知乎的时候看到一个有意思的东西，说不定以后可能会用到。 关于拼英怎么显示的问题。 之前有自己想过，如果让我自己去实现拼音的显示，大致的思路可能就是调整文本的行高。对每个文字增加伪元素或者写额外的拼音元素用定位来进行展示。 昨天看到了另外一种展示的方法。 使用&amp;lt;ruby&amp;gt;元素来进行展示。 Demo: 1234567891011&amp;lt;html&amp;gt;  &amp;lt;">
-<meta name="twitter:image" content="https://nanpangyou.github.io/2019/05/27/拼音/demo1.png">
+<meta name="twitter:title" content="VueRouter在Webpack上的坑">
+<meta name="twitter:description" content="VueRouter 学习笔记之在 Webpack(4.X) 上的坑通常 VueRouter 给我们提供了常用的两种方式的使用  hash 模式在 url 中有 # 号的存在，不美观，也不利于 SEO ，部署没有成本，用户向服务器发送请求时，浏览器会忽略 # 后面的值。刷新时不会重新请求。  history 模式url 看起来是正常的，会向服务器发送请求。所以在刷新的时候，会向服务器发送对应路径的请">
 
 
 
@@ -119,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="https://nanpangyou.github.io/2019/05/27/拼音/">
+  <link rel="canonical" href="https://nanpangyou.github.io/2019/08/02/VueRouter在Webpack上的坑/">
 
 
 
@@ -129,7 +125,7 @@
   };
 </script>
 
-  <title>拼音 | 这里是男胖友</title>
+  <title>VueRouter在Webpack上的坑 | 这里是男胖友</title>
   
 
 
@@ -298,7 +294,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nanpangyou.github.io/2019/05/27/拼音/">
+    <link itemprop="mainEntityOfPage" href="https://nanpangyou.github.io/2019/08/02/VueRouter在Webpack上的坑/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="男胖友">
@@ -315,7 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">拼音
+          <h1 class="post-title" itemprop="name headline">VueRouter在Webpack上的坑
 
               
             
@@ -341,12 +337,24 @@
                 
               
 
-              <time title="创建时间：2019-05-27 12:24:37 / 修改时间：17:50:06" itemprop="dateCreated datePublished" datetime="2019-05-27T12:24:37+08:00">2019-05-27</time>
+              <time title="创建时间：2019-08-02 17:48:53" itemprop="dateCreated datePublished" datetime="2019-08-02T17:48:53+08:00">2019-08-02</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-03 10:52:11" itemprop="dateModified" datetime="2019-08-03T10:52:11+08:00">2019-08-03</time>
               
             
           </span>
@@ -405,27 +413,15 @@
       
 
       
-        <h1 id="拼音到底应该怎么打"><a href="#拼音到底应该怎么打" class="headerlink" title="拼音到底应该怎么打"></a>拼音到底应该怎么打</h1><p>昨晚在刷知乎的时候看到一个有意思的东西，说不定以后可能会用到。</p>
-<p>关于拼英怎么显示的问题。</p>
-<p>之前有自己想过，如果让我自己去实现拼音的显示，大致的思路可能就是调整文本的行高。对每个文字增加伪元素或者写额外的拼音元素用定位来进行展示。</p>
-<p>昨天看到了另外一种展示的方法。</p>
-<p>使用<code>&lt;ruby&gt;</code>元素来进行展示。</p>
-<p>Demo:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;title&gt;Demo&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;ruby&gt;我&lt;rt&gt;wo&lt;/rt&gt;&lt;/ruby&gt;</span><br><span class="line">    &lt;ruby&gt;不&lt;rt&gt;bu&lt;/rt&gt;&lt;/ruby&gt;</span><br><span class="line">    &lt;ruby&gt;开&lt;rt&gt;kai&lt;/rt&gt;&lt;/ruby&gt;</span><br><span class="line">    &lt;ruby&gt;心&lt;rt&gt;xin&lt;/rt&gt;&lt;/ruby&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/05/27/拼音/demo1.png" alt="demo"></p>
-<h1 id="一些属性："><a href="#一些属性：" class="headerlink" title="一些属性："></a>一些属性：</h1><p>根据 MDN 上面所写，<code>&lt;ruby&gt;</code>元素是专门用来展示东亚文字注音或字符注释。（脑补： 拼音？片甲？🤦‍♂️）</p>
-<p>尝试后感觉应该是非块状元素。注音和文字本身都受 font 相关的 css 属性影响。</p>
-<p>关于文字的行高，界限大致如图可以看到</p>
-<p><img src="/2019/05/27/拼音/demo2.jpg" alt="demo1"></p>
-<p>兼容性比想象中的好很多<br><img src="/2019/05/27/拼音/demo3.jpg" alt="兼容性"></p>
-<h1 id="另外"><a href="#另外" class="headerlink" title="另外"></a>另外</h1><p>配套使用的<code>&lt;rt&gt;</code>和<code>&lt;rp&gt;</code>各自有各自的用途</p>
-<p><code>&lt;rt&gt;</code>元素主要是用来包裹注音的内容。</p>
-<p><code>&lt;rp&gt;</code>元素主要是当<code>&lt;rt&gt;</code>元素不支持上标的时候。用来代替使用的。</p>
-<p>demo：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;ruby&gt;</span><br><span class="line">  漢 &lt;rp&gt;(&lt;/rp&gt;&lt;rt&gt;han&lt;/rt&gt;&lt;rp&gt;)&lt;/rp&gt;</span><br><span class="line">  字 &lt;rp&gt;(&lt;/rp&gt;&lt;rt&gt;zi&lt;/rt&gt;&lt;rp&gt;)&lt;/rp&gt;</span><br><span class="line">&lt;/ruby&gt;</span><br></pre></td></tr></table></figure>
-<p>至此～</p>
-<p>ps： 周一日常丧（´-`）</p>
-
+        <h1 id="VueRouter-学习笔记之在-Webpack-4-X-上的坑"><a href="#VueRouter-学习笔记之在-Webpack-4-X-上的坑" class="headerlink" title="VueRouter 学习笔记之在 Webpack(4.X) 上的坑"></a>VueRouter 学习笔记之在 Webpack(4.X) 上的坑</h1><p>通常 VueRouter 给我们提供了常用的两种方式的使用</p>
+<ul>
+<li><p>hash 模式<br>在 url 中有 # 号的存在，不美观，也不利于 SEO ，部署没有成本，用户向服务器发送请求时，浏览器会忽略 # 后面的值。刷新时不会重新请求。</p>
+</li>
+<li><p>history 模式<br>url 看起来是正常的，会向服务器发送请求。所以在刷新的时候，会向服务器发送对应路径的请求。服务器没有对应的路径，就会报404</p>
+</li>
+</ul>
+<p>解决办法，就是在 webpack 的配置项中，在 devServer 加上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//history模式下的url会请求到服务器端，但是服务器端并没有这一个资源文件，就会返回404，所以需要配置这一项</span><br><span class="line">historyApiFallback: &#123;</span><br><span class="line">            rewrites: [&#123;</span><br><span class="line">                from: /.*/g,</span><br><span class="line">                to: &apos;/index.html&apos; //与output的publicPath有关(HTMLplugin生成的html默认为index.html)</span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -461,8 +457,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/15/浏览器切换tab/" rel="next" title="浏览器切换tab">
-                <i class="fa fa-chevron-left"></i> 浏览器切换tab
+              <a href="/2019/07/24/flexbox布局/" rel="next" title="flexbox布局">
+                <i class="fa fa-chevron-left"></i> flexbox布局
               </a>
             
           </div>
@@ -470,10 +466,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/30/Vue——transition动画的一个小注意点/" rel="prev" title="Vue——transition动画的一个小注意点">
-                Vue——transition动画的一个小注意点 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -620,7 +612,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#拼音到底应该怎么打"><span class="nav-number">1.</span> <span class="nav-text">拼音到底应该怎么打</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一些属性："><span class="nav-number">2.</span> <span class="nav-text">一些属性：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#另外"><span class="nav-number">3.</span> <span class="nav-text">另外</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#VueRouter-学习笔记之在-Webpack-4-X-上的坑"><span class="nav-number">1.</span> <span class="nav-text">VueRouter 学习笔记之在 Webpack(4.X) 上的坑</span></a></li></ol></div>
             
 
           </div>
