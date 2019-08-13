@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="日常使用npm i xxxx 和 npm i xxx -D还有npm i xxx -S傻傻分不清。 npm i xxx -D等同于npm install xxx --save-dev，它所安装的文件会将版本信息和名字写入package.json中的devDependencies对象中。 npm i xxx -S等同于npm install xxx --save,它所安装的文件会将版本信息和名字写入">
+  <meta name="description" content="encodeURI() 和 encodeURIComponent() 方法encodeURI() 和 encodeURIComponent() 方法，通常都用来进行对 url 的编码。  为什么要编码：标准的 url 中不可以出现特殊字符，如 空格 等，如果有则会造成浏览器无法正确理解 url，因此需要使用 utf-8 来对特殊的字符进行替换  区别：encodeURI() 方法常用来对整个 UR">
 <meta name="keywords" content="note">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用npm安装时的参数">
-<meta property="og:url" content="https://nanpangyou.github.io/2019/06/28/使用npm安装时的参数/index.html">
+<meta property="og:title" content="url编码">
+<meta property="og:url" content="https://nanpangyou.github.io/2019/08/13/url编码/index.html">
 <meta property="og:site_name" content="这里是男胖友">
-<meta property="og:description" content="日常使用npm i xxxx 和 npm i xxx -D还有npm i xxx -S傻傻分不清。 npm i xxx -D等同于npm install xxx --save-dev，它所安装的文件会将版本信息和名字写入package.json中的devDependencies对象中。 npm i xxx -S等同于npm install xxx --save,它所安装的文件会将版本信息和名字写入">
+<meta property="og:description" content="encodeURI() 和 encodeURIComponent() 方法encodeURI() 和 encodeURIComponent() 方法，通常都用来进行对 url 的编码。  为什么要编码：标准的 url 中不可以出现特殊字符，如 空格 等，如果有则会造成浏览器无法正确理解 url，因此需要使用 utf-8 来对特殊的字符进行替换  区别：encodeURI() 方法常用来对整个 UR">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-28T07:16:18.453Z">
+<meta property="og:updated_time" content="2019-08-13T07:50:59.824Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用npm安装时的参数">
-<meta name="twitter:description" content="日常使用npm i xxxx 和 npm i xxx -D还有npm i xxx -S傻傻分不清。 npm i xxx -D等同于npm install xxx --save-dev，它所安装的文件会将版本信息和名字写入package.json中的devDependencies对象中。 npm i xxx -S等同于npm install xxx --save,它所安装的文件会将版本信息和名字写入">
+<meta name="twitter:title" content="url编码">
+<meta name="twitter:description" content="encodeURI() 和 encodeURIComponent() 方法encodeURI() 和 encodeURIComponent() 方法，通常都用来进行对 url 的编码。  为什么要编码：标准的 url 中不可以出现特殊字符，如 空格 等，如果有则会造成浏览器无法正确理解 url，因此需要使用 utf-8 来对特殊的字符进行替换  区别：encodeURI() 方法常用来对整个 UR">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="https://nanpangyou.github.io/2019/06/28/使用npm安装时的参数/">
+  <link rel="canonical" href="https://nanpangyou.github.io/2019/08/13/url编码/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>使用npm安装时的参数 | 这里是男胖友</title>
+  <title>url编码 | 这里是男胖友</title>
   
 
 
@@ -294,7 +294,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nanpangyou.github.io/2019/06/28/使用npm安装时的参数/">
+    <link itemprop="mainEntityOfPage" href="https://nanpangyou.github.io/2019/08/13/url编码/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="男胖友">
@@ -311,7 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">使用npm安装时的参数
+          <h1 class="post-title" itemprop="name headline">url编码
 
               
             
@@ -337,7 +337,7 @@
                 
               
 
-              <time title="创建时间：2019-06-28 15:02:12 / 修改时间：15:16:18" itemprop="dateCreated datePublished" datetime="2019-06-28T15:02:12+08:00">2019-06-28</time>
+              <time title="创建时间：2019-08-13 15:39:32 / 修改时间：15:50:59" itemprop="dateCreated datePublished" datetime="2019-08-13T15:39:32+08:00">2019-08-13</time>
             
 
             
@@ -401,18 +401,15 @@
       
 
       
-        <p>日常使用<code>npm i xxxx</code> 和 <code>npm i xxx -D</code>还有<code>npm i xxx -S</code>傻傻分不清。</p>
-<p><code>npm i xxx -D</code>等同于<code>npm install xxx --save-dev</code>，它所安装的文件会将版本信息和名字写入<code>package.json</code>中的<code>devDependencies</code>对象中。</p>
-<p><code>npm i xxx -S</code>等同于<code>npm install xxx --save</code>,它所安装的文件会将版本信息和名字写入<code>package.json</code>中的<code>dependencies</code>对象中。</p>
-<p>那么问题来了，<code>devDependencies</code>和<code>dependencies</code>有什么区别？</p>
-<blockquote>
-<p>devDependencies</p>
-</blockquote>
-<p>主要是开发时所依赖的包，这个目录下的不需要部署到生产</p>
-<blockquote>
-<p>dependencies</p>
-</blockquote>
-<p>项目运行所依赖的包，需要在生产也使用</p>
+        <h1 id="encodeURI-和-encodeURIComponent-方法"><a href="#encodeURI-和-encodeURIComponent-方法" class="headerlink" title="encodeURI() 和 encodeURIComponent() 方法"></a>encodeURI() 和 encodeURIComponent() 方法</h1><p>encodeURI() 和 encodeURIComponent() 方法，通常都用来进行对 url 的编码。</p>
+<ul>
+<li><p>为什么要编码：<br>标准的 url 中不可以出现特殊字符，如 空格 等，如果有则会造成浏览器无法正确理解 url，因此需要使用 utf-8 来对特殊的字符进行替换</p>
+</li>
+<li><p>区别：<br>encodeURI() 方法常用来对整个 URL 进行编码，但是对本身属性 url 的特殊字符进行编码，例如“冒号、正斜杠、问号、井号”则不转换。<br>encodeURIComponent() 方法常用域对 url 中的某一块进行编码，一般是参数部分，他会将任何非标准字符进行编码。</p>
+</li>
+<li><p>对应的解码函数：<br>encodeURI() =&gt; decodeURI()<br>encodeURIComponent() =&gt; decodeURIComponent()</p>
+</li>
+</ul>
 
       
     </div>
@@ -449,8 +446,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/18/Vue组件间的传值/" rel="next" title="Vue组件间的传值">
-                <i class="fa fa-chevron-left"></i> Vue组件间的传值
+              <a href="/2019/08/02/VueRouter在Webpack上的坑/" rel="next" title="VueRouter在Webpack上的坑">
+                <i class="fa fa-chevron-left"></i> VueRouter在Webpack上的坑
               </a>
             
           </div>
@@ -458,10 +455,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/20/Promise对象/" rel="prev" title="Promise对象">
-                Promise对象 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -505,8 +498,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -588,6 +590,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#encodeURI-和-encodeURIComponent-方法"><span class="nav-number">1.</span> <span class="nav-text">encodeURI() 和 encodeURIComponent() 方法</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
