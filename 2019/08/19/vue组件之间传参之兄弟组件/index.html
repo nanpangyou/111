@@ -96,18 +96,20 @@
 
 
 
-  <meta name="description" content="VueRouter 学习笔记之在 Webpack(4.X) 上的坑通常 VueRouter 给我们提供了常用的两种方式的使用  hash 模式在 url 中有 # 号的存在，不美观，也不利于 SEO ，部署没有成本，用户向服务器发送请求时，浏览器会忽略 # 后面的值。刷新时不会重新请求。  history 模式url 看起来是正常的，会向服务器发送请求。所以在刷新的时候，会向服务器发送对应路径的请">
+  <meta name="description" content="vue 组件传参之兄弟组件之前有一篇写了 vue 组件传参，主要写了父子组件之间的传参，通过 props 和 $emit(&amp;#39;eventName&amp;#39;) 的方式。 这次主要来写一下另一种情况，两个平级的兄弟组件之间怎么传参。 主要原理和父子组件之间通过触发事件来传参差不多如何做：  兄弟组件之间的传参需要借助 eventBus 这个概念。 eventBus 其实也是一个 vue 实例。">
 <meta name="keywords" content="note">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VueRouter在Webpack上的坑">
-<meta property="og:url" content="https://nanpangyou.github.io/2019/08/02/VueRouter在Webpack上的坑/index.html">
+<meta property="og:title" content="vue组件之间传参之兄弟组件">
+<meta property="og:url" content="https://nanpangyou.github.io/2019/08/19/vue组件之间传参之兄弟组件/index.html">
 <meta property="og:site_name" content="这里是男胖友">
-<meta property="og:description" content="VueRouter 学习笔记之在 Webpack(4.X) 上的坑通常 VueRouter 给我们提供了常用的两种方式的使用  hash 模式在 url 中有 # 号的存在，不美观，也不利于 SEO ，部署没有成本，用户向服务器发送请求时，浏览器会忽略 # 后面的值。刷新时不会重新请求。  history 模式url 看起来是正常的，会向服务器发送请求。所以在刷新的时候，会向服务器发送对应路径的请">
+<meta property="og:description" content="vue 组件传参之兄弟组件之前有一篇写了 vue 组件传参，主要写了父子组件之间的传参，通过 props 和 $emit(&amp;#39;eventName&amp;#39;) 的方式。 这次主要来写一下另一种情况，两个平级的兄弟组件之间怎么传参。 主要原理和父子组件之间通过触发事件来传参差不多如何做：  兄弟组件之间的传参需要借助 eventBus 这个概念。 eventBus 其实也是一个 vue 实例。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-03T02:52:11.133Z">
+<meta property="og:image" content="https://nanpangyou.github.io/2019/08/19/vue组件之间传参之兄弟组件/siblings-component.gif">
+<meta property="og:updated_time" content="2019-08-19T07:59:19.057Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="VueRouter在Webpack上的坑">
-<meta name="twitter:description" content="VueRouter 学习笔记之在 Webpack(4.X) 上的坑通常 VueRouter 给我们提供了常用的两种方式的使用  hash 模式在 url 中有 # 号的存在，不美观，也不利于 SEO ，部署没有成本，用户向服务器发送请求时，浏览器会忽略 # 后面的值。刷新时不会重新请求。  history 模式url 看起来是正常的，会向服务器发送请求。所以在刷新的时候，会向服务器发送对应路径的请">
+<meta name="twitter:title" content="vue组件之间传参之兄弟组件">
+<meta name="twitter:description" content="vue 组件传参之兄弟组件之前有一篇写了 vue 组件传参，主要写了父子组件之间的传参，通过 props 和 $emit(&amp;#39;eventName&amp;#39;) 的方式。 这次主要来写一下另一种情况，两个平级的兄弟组件之间怎么传参。 主要原理和父子组件之间通过触发事件来传参差不多如何做：  兄弟组件之间的传参需要借助 eventBus 这个概念。 eventBus 其实也是一个 vue 实例。">
+<meta name="twitter:image" content="https://nanpangyou.github.io/2019/08/19/vue组件之间传参之兄弟组件/siblings-component.gif">
 
 
 
@@ -115,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="https://nanpangyou.github.io/2019/08/02/VueRouter在Webpack上的坑/">
+  <link rel="canonical" href="https://nanpangyou.github.io/2019/08/19/vue组件之间传参之兄弟组件/">
 
 
 
@@ -125,7 +127,7 @@
   };
 </script>
 
-  <title>VueRouter在Webpack上的坑 | 这里是男胖友</title>
+  <title>vue组件之间传参之兄弟组件 | 这里是男胖友</title>
   
 
 
@@ -294,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nanpangyou.github.io/2019/08/02/VueRouter在Webpack上的坑/">
+    <link itemprop="mainEntityOfPage" href="https://nanpangyou.github.io/2019/08/19/vue组件之间传参之兄弟组件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="男胖友">
@@ -311,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">VueRouter在Webpack上的坑
+          <h1 class="post-title" itemprop="name headline">vue组件之间传参之兄弟组件
 
               
             
@@ -337,24 +339,12 @@
                 
               
 
-              <time title="创建时间：2019-08-02 17:48:53" itemprop="dateCreated datePublished" datetime="2019-08-02T17:48:53+08:00">2019-08-02</time>
+              <time title="创建时间：2019-08-19 15:01:08 / 修改时间：15:59:19" itemprop="dateCreated datePublished" datetime="2019-08-19T15:01:08+08:00">2019-08-19</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-03 10:52:11" itemprop="dateModified" datetime="2019-08-03T10:52:11+08:00">2019-08-03</time>
               
             
           </span>
@@ -413,15 +403,23 @@
       
 
       
-        <h1 id="VueRouter-学习笔记之在-Webpack-4-X-上的坑"><a href="#VueRouter-学习笔记之在-Webpack-4-X-上的坑" class="headerlink" title="VueRouter 学习笔记之在 Webpack(4.X) 上的坑"></a>VueRouter 学习笔记之在 Webpack(4.X) 上的坑</h1><p>通常 VueRouter 给我们提供了常用的两种方式的使用</p>
-<ul>
-<li><p>hash 模式<br>在 url 中有 # 号的存在，不美观，也不利于 SEO ，部署没有成本，用户向服务器发送请求时，浏览器会忽略 # 后面的值。刷新时不会重新请求。</p>
-</li>
-<li><p>history 模式<br>url 看起来是正常的，会向服务器发送请求。所以在刷新的时候，会向服务器发送对应路径的请求。服务器没有对应的路径，就会报404</p>
-</li>
-</ul>
-<p>解决办法，就是在 webpack 的配置项中，在 devServer 加上</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//history模式下的url会请求到服务器端，但是服务器端并没有这一个资源文件，就会返回404，所以需要配置这一项</span><br><span class="line">historyApiFallback: &#123;</span><br><span class="line">            rewrites: [&#123;</span><br><span class="line">                from: /.*/g,</span><br><span class="line">                to: &apos;/index.html&apos; //与output的publicPath有关(HTMLplugin生成的html默认为index.html)</span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="vue-组件传参之兄弟组件"><a href="#vue-组件传参之兄弟组件" class="headerlink" title="vue 组件传参之兄弟组件"></a>vue 组件传参之兄弟组件</h1><p>之前有一篇写了 vue 组件传参，主要写了父子组件之间的传参，通过 <code>props</code> 和 <code>$emit(&#39;eventName&#39;)</code> 的方式。</p>
+<p>这次主要来写一下另一种情况，两个平级的兄弟组件之间怎么传参。</p>
+<p>主要原理和父子组件之间通过触发事件来传参差不多<br>如何做：</p>
+<ol>
+<li>兄弟组件之间的传参需要借助 <code>eventBus</code> 这个概念。</li>
+<li><code>eventBus</code> 其实也是一个 <code>vue</code> 实例。</li>
+<li>兄弟组件通过引入同一个 <code>eventBus</code> 来建立联系，触发并且监听同一个事件来进行传参</li>
+<li>数据发送方，通过触发 <code>bus.$emit(&#39;eventName&#39;, data)</code> 来发送数据</li>
+<li>数据接收方，通过 <code>bus.$on(&#39;eventName&#39;, (data)=&gt;console.log(data))</code> 其中 \$on 的回调函数就可以接受传参</li>
+</ol>
+<p>上 Demo：</p>
+<h3 id="父组件"><a href="#父组件" class="headerlink" title="父组件"></a>父组件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//  父组件（主要在 Demo 中做包裹层）</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;component-a&gt;&lt;/component-a&gt;</span><br><span class="line">    &lt;component-b&gt;&lt;/component-b&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="eventBus-js"><a href="#eventBus-js" class="headerlink" title="eventBus.js"></a>eventBus.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//  eventBus.js( 事件车，主要是用来承载监听函数)</span><br><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line"></span><br><span class="line">export default new Vue();</span><br></pre></td></tr></table></figure>
+<h3 id="组件-A"><a href="#组件-A" class="headerlink" title="组件 A"></a>组件 A</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// 组件A  事件的触发方</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h1&gt;a组件&lt;/h1&gt;</span><br><span class="line">    &lt;button @click=&quot;abtn&quot;&gt;A按钮&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import eventVue from &quot;./eventBus.js&quot;;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;app&quot;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      msg: &quot;我是组件A&quot;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    abtn: function() &#123;</span><br><span class="line">      eventVue.$emit(&quot;myFun&quot;, this.msg); //$emit这个方法会触发一个事件</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="组件-B"><a href="#组件-B" class="headerlink" title="组件 B"></a>组件 B</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">//  组件B 事件的监听方</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h1&gt;b组件&lt;/h1&gt;</span><br><span class="line">    &lt;div class=&quot;components-a&quot;&gt;</span><br><span class="line">      &lt;div&gt;&#123;&#123;btext&#125;&#125;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import eventVue from &quot;./eventBus.js&quot;;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;app&quot;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      btext: &quot;我是B组件内容&quot;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  created: function() &#123;</span><br><span class="line">    this.bbtn();</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    bbtn: function() &#123;</span><br><span class="line">      eventVue.$on(&quot;myFun&quot;, message =&gt; &#123;</span><br><span class="line">        //注意这里的 this 指向 非箭头函数会有问题</span><br><span class="line">        this.btext = message;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>效果截图：<br><img src="/2019/08/19/vue组件之间传参之兄弟组件/siblings-component.gif" alt="效果截图"></p>
+
       
     </div>
 
@@ -457,8 +455,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/24/flexbox布局/" rel="next" title="flexbox布局">
-                <i class="fa fa-chevron-left"></i> flexbox布局
+              <a href="/2019/08/13/url编码/" rel="next" title="url编码">
+                <i class="fa fa-chevron-left"></i> url编码
               </a>
             
           </div>
@@ -466,10 +464,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/13/url编码/" rel="prev" title="url编码">
-                url编码 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -616,7 +610,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#VueRouter-学习笔记之在-Webpack-4-X-上的坑"><span class="nav-number">1.</span> <span class="nav-text">VueRouter 学习笔记之在 Webpack(4.X) 上的坑</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vue-组件传参之兄弟组件"><span class="nav-number">1.</span> <span class="nav-text">vue 组件传参之兄弟组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#父组件"><span class="nav-number">1.0.1.</span> <span class="nav-text">父组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#eventBus-js"><span class="nav-number">1.0.2.</span> <span class="nav-text">eventBus.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件-A"><span class="nav-number">1.0.3.</span> <span class="nav-text">组件 A</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件-B"><span class="nav-number">1.0.4.</span> <span class="nav-text">组件 B</span></a></li></ol></li></ol></div>
             
 
           </div>
