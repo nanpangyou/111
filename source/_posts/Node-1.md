@@ -175,6 +175,7 @@ rs.on('open',()=>{
 })
 rs.on('close',()=>{
   console.log('读取结束')
+  ws.end()
 })
 //  监听写入流
 ws.on('open',()=>{
@@ -190,6 +191,6 @@ rs.on('data',data=>{
   console.log(data.toString())  // 读取的Buffer字符串化
   console.log(data.length)  // 读取的Buffer长度
   ws.write(data)
-  ws.end()
+
 })
 ```
