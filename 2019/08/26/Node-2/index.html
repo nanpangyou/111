@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="这里是男胖友">
 <meta property="og:description" content="Mongodb数据库分类 关系型数据库（RDBS）如 MySQL, Oracle, DB2, SQL server …  优点 ：  易于维护： 都是使用表结构，格式一致 使用方便： SQL 语言通用，可用于复杂查询 高级查询： 可用于多表之间的复杂查询  缺点 ：  读写性能比较差，尤其是海量数据的高效率读写 有固定的表结构，字段不可以随意修改，灵活度欠缺 高并发的读写需求，传统关系行数据库来说">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-26T07:29:15.628Z">
+<meta property="og:updated_time" content="2019-08-27T03:28:17.563Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node-2">
 <meta name="twitter:description" content="Mongodb数据库分类 关系型数据库（RDBS）如 MySQL, Oracle, DB2, SQL server …  优点 ：  易于维护： 都是使用表结构，格式一致 使用方便： SQL 语言通用，可用于复杂查询 高级查询： 可用于多表之间的复杂查询  缺点 ：  读写性能比较差，尤其是海量数据的高效率读写 有固定的表结构，字段不可以随意修改，灵活度欠缺 高并发的读写需求，传统关系行数据库来说">
@@ -337,12 +337,24 @@
                 
               
 
-              <time title="创建时间：2019-08-26 11:00:03 / 修改时间：15:29:15" itemprop="dateCreated datePublished" datetime="2019-08-26T11:00:03+08:00">2019-08-26</time>
+              <time title="创建时间：2019-08-26 11:00:03" itemprop="dateCreated datePublished" datetime="2019-08-26T11:00:03+08:00">2019-08-26</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-27 11:28:17" itemprop="dateModified" datetime="2019-08-27T11:28:17+08:00">2019-08-27</time>
               
             
           </span>
@@ -487,7 +499,7 @@
 <li>正则匹配：<br>举例： db.student.find({name:/^T/)</li>
 <li>\$where 能写函数<br>举例：<br>db.student.find({\$where:function(){<br>return this.name === ‘jack’ &amp;&amp; this.age === 18<br>}})</li>
 </ol>
-<p>投影：<br>db.studnet.find({age:18},{name:1}) //查询所有 age 为 18 的 name 字段<br>db.studnet.find({age:18},{sex:0}) //查询所有 age 为 18 的 数据，不要 sex 字段</p>
+<p>投影：<br>db.studnet.find({age:18},{name:1}) //查询所有 age 为 18 的 name 字段<br>db.studnet.find({age:18},{sex:0}) //查询所有 age 为 18 的 数据，不要 sex 字段<br>投影的 0 和 1 的约束条件不能混写</p>
 </li>
 </ul>
 <h3 id="U-update"><a href="#U-update" class="headerlink" title="-U update"></a>-U update</h3><ul>
@@ -550,6 +562,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/26/Node-3/" rel="prev" title="Node-3">
+                Node-3 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -618,7 +634,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
