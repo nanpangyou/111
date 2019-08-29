@@ -113,7 +113,8 @@ db.shutdownServer();
 
   投影：
   db.studnet.find({age:18},{name:1}) //查询所有 age 为 18 的 name 字段
-  db.studnet.find({age:18},{sex:0}) //查询所有 age 为 18 的 数据，不要 sex 字段
+  db.studnet.find({age:18},{sex:0}) //查询所有 age 为 18 的 数据，不要 sex 字段  
+  投影的 0 和 1 的约束条件不能混写
 
 ### -U update
 
