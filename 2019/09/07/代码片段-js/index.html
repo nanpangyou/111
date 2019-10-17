@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="这里是男胖友">
 <meta property="og:description" content="curry 函数（可以将函数柯里化的函数）当传入的参数个数没有到达 func 函数要求的参数个数的时候一直返回柯里化函数。 只有参数满足 func 函数的个数的时候才通过 apply 执行 func 函数 1234567891011121314151617181920212223242526272829303132/*  function curry(???)&amp;#123;      ???">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-09T03:06:07.909Z">
+<meta property="og:updated_time" content="2019-10-11T06:13:09.153Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="代码片段-js">
 <meta name="twitter:description" content="curry 函数（可以将函数柯里化的函数）当传入的参数个数没有到达 func 函数要求的参数个数的时候一直返回柯里化函数。 只有参数满足 func 函数的个数的时候才通过 apply 执行 func 函数 1234567891011121314151617181920212223242526272829303132/*  function curry(???)&amp;#123;      ???">
@@ -354,7 +354,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-09 11:06:07" itemprop="dateModified" datetime="2019-09-09T11:06:07+08:00">2019-09-09</time>
+                <time title="修改时间：2019-10-11 14:13:09" itemprop="dateModified" datetime="2019-10-11T14:13:09+08:00">2019-10-11</time>
               
             
           </span>
@@ -413,12 +413,27 @@
       
 
       
-        <ul>
+        <hr>
+<ul>
 <li><p>curry 函数（可以将函数柯里化的函数）<br>当传入的参数个数没有到达 func 函数要求的参数个数的时候一直返回柯里化函数。 只有参数满足 func 函数的个数的时候才通过 apply 执行 func 函数</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">  function curry(???)&#123;</span><br><span class="line">      ???</span><br><span class="line">      return ???</span><br><span class="line">  &#125;</span><br><span class="line">  var abc = function(a, b, c) &#123;</span><br><span class="line">    return [a, b, c];</span><br><span class="line">  &#125;;</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">function curry(fn,thisArg)&#123;</span><br><span class="line">    if ( !Array.isArray(thisArg) ) &#123;</span><br><span class="line">              thisArg = [];</span><br><span class="line">    &#125;</span><br><span class="line">    return function()&#123;</span><br><span class="line">          let args = Array.prototype.slice.call(arguments);</span><br><span class="line">          if ( (args.length+thisArg.length) &lt; fn.length ) &#123;</span><br><span class="line">              return curry(fn , thisArg.concat(args));</span><br><span class="line">          &#125;</span><br><span class="line">          return fn.apply(this , thisArg.concat(args));</span><br><span class="line">      &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var abc = function(a, b, c) &#123;</span><br><span class="line">  return [a, b, c];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var curried = curry(abc);</span><br><span class="line"></span><br><span class="line">curried(1)(2)(3);</span><br><span class="line">curried(1, 2)(3);</span><br><span class="line">curried(1, 2, 3);</span><br></pre></td></tr></table></figure>
 <p><strong><a href="https://yi-love.github.io/articles/js-func-curry" target="_blank" rel="noopener">参考博客</a></strong></p>
 </li>
 </ul>
+<hr>
+<ul>
+<li><p>简易双向绑定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class X&#123;</span><br><span class="line">    __N行代码__</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var view = new X(&#123;</span><br><span class="line">    data: &#123;</span><br><span class="line">        name: &apos;frank&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">console.log(view.name === &apos;frank&apos;) // 输出 true</span><br><span class="line">view.name = &apos;jack&apos; // 输出「有人修改了 name」</span><br></pre></td></tr></table></figure>
+<p>使用 Object.defineProperty</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class X&#123;</span><br><span class="line">    constructor(options)&#123;</span><br><span class="line">      Object.defineProperty(this, &apos;name&apos;,&#123;</span><br><span class="line">        get()&#123;</span><br><span class="line">            return options.data.name</span><br><span class="line">        &#125;,</span><br><span class="line">        set(value)&#123;</span><br><span class="line">            options.data.name =  value</span><br><span class="line">            console.log(&apos;有人修改了name&apos;)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  var view = new X(&#123;</span><br><span class="line">      data: &#123;</span><br><span class="line">          name: &apos;frank&apos;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  console.log(view.name === &apos;frank&apos;) // 输出 true</span><br><span class="line">  view.name = &apos;jack&apos; // 输出「有人修改了 name」</span><br></pre></td></tr></table></figure>
+<p>(使用 Proxy 的方式还是不太会)</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li>事件触发和监听</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class EventHub&#123;</span><br><span class="line">  constructor()&#123;</span><br><span class="line">      this.events = &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  on(eventName,fn)&#123;</span><br><span class="line">      console.log(&apos;间听到事件&apos;,data)</span><br><span class="line">      if(!this.events[eventName])&#123;</span><br><span class="line">          this.envents[eventName] = []</span><br><span class="line">      &#125;</span><br><span class="line">      this.events[eventName].push(fn)</span><br><span class="line">  &#125;</span><br><span class="line">  trigger(eventName,params)&#123;</span><br><span class="line">        let fnList = this.events[eventName]</span><br><span class="line">        fnList.map((fn)=&gt;&#123;</span><br><span class="line">            fn.apply(null,params)</span><br><span class="line">        &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">var a = new EventHub()</span><br><span class="line">a.trigger(&apos;zzz&apos;,&apos;a&apos;)</span><br><span class="line">a.on(&apos;zzz&apos;,()=&gt;&#123;</span><br><span class="line">    console.log(&apos;间听到了&apos;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -529,7 +544,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
