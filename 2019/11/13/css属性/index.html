@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="CSS变量语法：定义变量： --variableName调用变量： var(--variableName)默认值：   var(--variableName, defaultValue) 1. 当 --variableName 不存在的时候，将会使用默认值 2. 当浏览器不支持时，也应该使用默认值 3. 变量名区分大小写 123456789.className&amp;#123;    --fontcol">
-<meta name="keywords" content="css learnnote">
+  <meta name="description" content="遇见的，不会的，CSS 属性 backface-visibility 功能： 隐藏被旋转的 div 元素的背面 1234567891011121314151617181920212223242526272829303132333435&amp;lt;style&amp;gt;div&amp;#123;position:relative;height:60px;width:60px;border:1px solid #00">
+<meta name="keywords" content="博客 学习笔记 吐槽 树洞 笔记 学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS-Variable">
-<meta property="og:url" content="https://nanpangyou.github.io/2019/11/05/CSS-Variable/index.html">
+<meta property="og:title" content="css属性">
+<meta property="og:url" content="https://nanpangyou.github.io/2019/11/13/css属性/index.html">
 <meta property="og:site_name" content="这里是男胖友">
-<meta property="og:description" content="CSS变量语法：定义变量： --variableName调用变量： var(--variableName)默认值：   var(--variableName, defaultValue) 1. 当 --variableName 不存在的时候，将会使用默认值 2. 当浏览器不支持时，也应该使用默认值 3. 变量名区分大小写 123456789.className&amp;#123;    --fontcol">
+<meta property="og:description" content="遇见的，不会的，CSS 属性 backface-visibility 功能： 隐藏被旋转的 div 元素的背面 1234567891011121314151617181920212223242526272829303132333435&amp;lt;style&amp;gt;div&amp;#123;position:relative;height:60px;width:60px;border:1px solid #00">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-05T03:34:49.017Z">
+<meta property="og:updated_time" content="2019-11-13T10:18:38.195Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS-Variable">
-<meta name="twitter:description" content="CSS变量语法：定义变量： --variableName调用变量： var(--variableName)默认值：   var(--variableName, defaultValue) 1. 当 --variableName 不存在的时候，将会使用默认值 2. 当浏览器不支持时，也应该使用默认值 3. 变量名区分大小写 123456789.className&amp;#123;    --fontcol">
+<meta name="twitter:title" content="css属性">
+<meta name="twitter:description" content="遇见的，不会的，CSS 属性 backface-visibility 功能： 隐藏被旋转的 div 元素的背面 1234567891011121314151617181920212223242526272829303132333435&amp;lt;style&amp;gt;div&amp;#123;position:relative;height:60px;width:60px;border:1px solid #00">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="https://nanpangyou.github.io/2019/11/05/CSS-Variable/">
+  <link rel="canonical" href="https://nanpangyou.github.io/2019/11/13/css属性/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>CSS-Variable | 这里是男胖友</title>
+  <title>css属性 | 这里是男胖友</title>
   
 
 
@@ -294,7 +294,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nanpangyou.github.io/2019/11/05/CSS-Variable/">
+    <link itemprop="mainEntityOfPage" href="https://nanpangyou.github.io/2019/11/13/css属性/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="男胖友">
@@ -311,7 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CSS-Variable
+          <h1 class="post-title" itemprop="name headline">css属性
 
               
             
@@ -337,7 +337,7 @@
                 
               
 
-              <time title="创建时间：2019-11-05 10:38:24 / 修改时间：11:34:49" itemprop="dateCreated datePublished" datetime="2019-11-05T10:38:24+08:00">2019-11-05</time>
+              <time title="创建时间：2019-11-13 18:12:29 / 修改时间：18:18:38" itemprop="dateCreated datePublished" datetime="2019-11-13T18:12:29+08:00">2019-11-13</time>
             
 
             
@@ -376,17 +376,13 @@
       
 
       
-        <h1 id="CSS变量"><a href="#CSS变量" class="headerlink" title="CSS变量"></a>CSS变量</h1><h2 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h2><p>定义变量： <code>--variableName</code><br>调用变量： <code>var(--variableName)</code><br>默认值：   <code>var(--variableName, defaultValue)</code></p>
-<pre><code>1. 当 --variableName 不存在的时候，将会使用默认值
-2. 当浏览器不支持时，也应该使用默认值
-3. 变量名区分大小写
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.className&#123;</span><br><span class="line">    --fontcolor: red;</span><br><span class="line">&#125;</span><br><span class="line">.className2&#123;</span><br><span class="line">    color: var(--fontcolor)</span><br><span class="line">&#125;</span><br><span class="line">.className3&#123;</span><br><span class="line">    color: var(--fontcolor, yellow)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="层级"><a href="#层级" class="headerlink" title="层级"></a>层级</h2><p>你创建的变量可以在该元素本身以及该元素的子元素内使用</p>
-<p>根元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:root&#123;</span><br><span class="line">    --fontcolor: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>在根元素定义的变量，则在全局都可以使用<code>fontcolor</code>变量</p>
-<h2 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h2><p>在元素内创建变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.app&#123;</span><br><span class="line">    --fontcolor: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>:root</code>内定义的变量是整个页面的，如果在元素内定义同样的变量，则会覆盖全局变量（就近原则）</p>
-<h2 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h2><p>当屏幕的宽度小于等于350px的时候，<br>–fontcolor的值会被改变为green，那么应用了该变量的元素的样式则会发生响应式修改<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@media (max-width: 350px)&#123;</span><br><span class="line">    :root&#123;</span><br><span class="line">        --fontcolor: green;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h1 id="遇见的，不会的，CSS-属性"><a href="#遇见的，不会的，CSS-属性" class="headerlink" title="遇见的，不会的，CSS 属性"></a>遇见的，不会的，CSS 属性</h1><ol>
+<li><p>backface-visibility</p>
+<p>功能： 隐藏被旋转的 div 元素的背面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">position:relative;</span><br><span class="line">height:60px;</span><br><span class="line">width:60px;</span><br><span class="line">border:1px solid #000;</span><br><span class="line">background-color:yellow;</span><br><span class="line">transform:rotateY(180deg);</span><br><span class="line">-webkit-transform:rotateY(180deg); /* Chrome and Safari */</span><br><span class="line">-moz-transform:rotateY(180deg); /* Firefox */</span><br><span class="line">&#125;</span><br><span class="line">#div1</span><br><span class="line">&#123;</span><br><span class="line">-webkit-backface-visibility:hidden;</span><br><span class="line">-moz-backface-visibility:hidden;</span><br><span class="line">-ms-backface-visibility:hidden;</span><br><span class="line">&#125;</span><br><span class="line">#div2</span><br><span class="line">&#123;</span><br><span class="line">-webkit-backface-visibility:visible;</span><br><span class="line">-moz-backface-visibility:visible;</span><br><span class="line">-ms-backface-visibility:visible;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;p&gt;本例有两个 div 元素，均旋转 180 度，背向用户。&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">&lt;p&gt;第一个 div 元素的 backface-visibility 属性设置为 &quot;hidden&quot;，所以应该是不可见的。&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">&lt;div id=&quot;div1&quot;&gt;DIV 1&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;div id=&quot;div2&quot;&gt;DIV 2&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.caniuse.com/#search=backface-visibility" target="_blank" rel="noopener">can i use</a></p>
+</li>
+</ol>
 
       
     </div>
@@ -408,12 +404,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/css-learnnote/" rel="tag"># css learnnote</a>
-          
-        </div>
-      
 
       
       
@@ -423,8 +413,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/17/为什么在zsh中curl命令总有一个/" rel="next" title="为什么在zsh中curl命令总有一个%">
-                <i class="fa fa-chevron-left"></i> 为什么在zsh中curl命令总有一个%
+              <a href="/2019/11/05/CSS-Variable/" rel="next" title="CSS-Variable">
+                <i class="fa fa-chevron-left"></i> CSS-Variable
               </a>
             
           </div>
@@ -432,10 +422,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/13/css属性/" rel="prev" title="css属性">
-                css属性 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -600,7 +586,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS变量"><span class="nav-number">1.</span> <span class="nav-text">CSS变量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#语法："><span class="nav-number">1.1.</span> <span class="nav-text">语法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#层级"><span class="nav-number">1.2.</span> <span class="nav-text">层级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优先级"><span class="nav-number">1.3.</span> <span class="nav-text">优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#媒体查询"><span class="nav-number">1.4.</span> <span class="nav-text">媒体查询</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#遇见的，不会的，CSS-属性"><span class="nav-number">1.</span> <span class="nav-text">遇见的，不会的，CSS 属性</span></a></li></ol></div>
             
 
           </div>
