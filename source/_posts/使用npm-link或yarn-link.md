@@ -18,4 +18,4 @@ tags:
 
 这样就可以你开发后直接看到用户使用你的包的效果了
 
-如果想取消这种映射关系，需要使用`npm unlink <packageName>`或者`yarn unlink <packageName>`在两个目录里都执行一次。再重新安装一遍所依赖的包就可以了
+如果想取消这种映射关系，需要使用`npm unlink <packageName>`或者`yarn unlink <packageName>`在两个目录里都执行一次。再重新安装一遍所依赖的包就可以了。
