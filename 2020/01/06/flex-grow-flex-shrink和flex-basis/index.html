@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Node 原生服务器搭建(简单版)12345678910111213141516171819202122232425262728// 引入http模块let http = require(&amp;quot;http&amp;quot;);// 引入查询字符串处理函数let &amp;#123; parse &amp;#125; = require(&amp;quot;querystring&amp;quot;);// 创建server对象le">
-<meta name="keywords" content="note,node">
+  <meta name="description" content="flex 有三个属性值，分别是 flex-grow， flex-shrink， flex-basis，默认值是 0 1 auto flex-basis和 width 一样，他的默认值为 auto，如果和 width 属性同时设置一个值，flex-basis 会比较优先。当然工作中最好用 flex-basis，更符合规范。 flex-grow该属性来设置，当父元素的宽度大于所有子元素的宽度的和时（即">
+<meta name="keywords" content="note">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Node-4">
-<meta property="og:url" content="https://nanpangyou.github.io/2019/08/29/Node-4/index.html">
+<meta property="og:title" content="flex-grow,flex-shrink和flex-basis">
+<meta property="og:url" content="https://nanpangyou.github.io/2020/01/06/flex-grow-flex-shrink和flex-basis/index.html">
 <meta property="og:site_name" content="这里是男胖友">
-<meta property="og:description" content="Node 原生服务器搭建(简单版)12345678910111213141516171819202122232425262728// 引入http模块let http = require(&amp;quot;http&amp;quot;);// 引入查询字符串处理函数let &amp;#123; parse &amp;#125; = require(&amp;quot;querystring&amp;quot;);// 创建server对象le">
+<meta property="og:description" content="flex 有三个属性值，分别是 flex-grow， flex-shrink， flex-basis，默认值是 0 1 auto flex-basis和 width 一样，他的默认值为 auto，如果和 width 属性同时设置一个值，flex-basis 会比较优先。当然工作中最好用 flex-basis，更符合规范。 flex-grow该属性来设置，当父元素的宽度大于所有子元素的宽度的和时（即">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-29T07:13:07.353Z">
+<meta property="og:updated_time" content="2020-01-06T03:45:37.166Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Node-4">
-<meta name="twitter:description" content="Node 原生服务器搭建(简单版)12345678910111213141516171819202122232425262728// 引入http模块let http = require(&amp;quot;http&amp;quot;);// 引入查询字符串处理函数let &amp;#123; parse &amp;#125; = require(&amp;quot;querystring&amp;quot;);// 创建server对象le">
+<meta name="twitter:title" content="flex-grow,flex-shrink和flex-basis">
+<meta name="twitter:description" content="flex 有三个属性值，分别是 flex-grow， flex-shrink， flex-basis，默认值是 0 1 auto flex-basis和 width 一样，他的默认值为 auto，如果和 width 属性同时设置一个值，flex-basis 会比较优先。当然工作中最好用 flex-basis，更符合规范。 flex-grow该属性来设置，当父元素的宽度大于所有子元素的宽度的和时（即">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="https://nanpangyou.github.io/2019/08/29/Node-4/">
+  <link rel="canonical" href="https://nanpangyou.github.io/2020/01/06/flex-grow-flex-shrink和flex-basis/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>Node-4 | 这里是男胖友</title>
+  <title>flex-grow,flex-shrink和flex-basis | 这里是男胖友</title>
   
 
 
@@ -294,7 +294,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nanpangyou.github.io/2019/08/29/Node-4/">
+    <link itemprop="mainEntityOfPage" href="https://nanpangyou.github.io/2020/01/06/flex-grow-flex-shrink和flex-basis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="男胖友">
@@ -311,7 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Node-4
+          <h1 class="post-title" itemprop="name headline">flex-grow,flex-shrink和flex-basis
 
               
             
@@ -337,7 +337,7 @@
                 
               
 
-              <time title="创建时间：2019-08-29 11:03:50 / 修改时间：15:13:07" itemprop="dateCreated datePublished" datetime="2019-08-29T11:03:50+08:00">2019-08-29</time>
+              <time title="创建时间：2020-01-06 11:24:37 / 修改时间：11:45:37" itemprop="dateCreated datePublished" datetime="2020-01-06T11:24:37+08:00">2020-01-06</time>
             
 
             
@@ -366,7 +366,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Note/learnNote/" itemprop="url" rel="index"><span itemprop="name">learnNote</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Note/daily/" itemprop="url" rel="index"><span itemprop="name">daily</span></a></span>
 
                 
                 
@@ -401,7 +401,25 @@
       
 
       
-        <h1 id="Node-原生服务器搭建-简单版"><a href="#Node-原生服务器搭建-简单版" class="headerlink" title="Node 原生服务器搭建(简单版)"></a>Node 原生服务器搭建(简单版)</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// 引入http模块</span><br><span class="line">let http = require(&quot;http&quot;);</span><br><span class="line">// 引入查询字符串处理函数</span><br><span class="line">let &#123; parse &#125; = require(&quot;querystring&quot;);</span><br><span class="line"></span><br><span class="line">// 创建server对象</span><br><span class="line">let server = http.createServer((request, response) =&gt; &#123;</span><br><span class="line">  // request 请求对象</span><br><span class="line">  // response 返回对象</span><br><span class="line">  console.log(request.url);</span><br><span class="line">  let str = request.url.split(&quot;?&quot;)[1];</span><br><span class="line">  let obj = parse(str);</span><br><span class="line">  console.log(obj);</span><br><span class="line">  response.setHeader(&quot;content-type&quot;, &quot;text/html;charset=utf-8&quot;);</span><br><span class="line">  if (obj.haha === &quot;1&quot;) &#123;</span><br><span class="line">    response.end(&quot;h1&quot;);</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    response.end(&quot;&lt;h1&gt;服务器启动成功&lt;/h1&gt;&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">// 监听端口</span><br><span class="line">server.listen(9999, err =&gt; &#123;</span><br><span class="line">  if (!err) &#123;</span><br><span class="line">    console.log(&quot;服务器启动成功&quot;);</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    console.log(&quot;服务器启动失败&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+        <p>flex 有三个属性值，分别是 flex-grow， flex-shrink， flex-basis，默认值是 0 1 auto</p>
+<h1 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h1><p>和 width 一样，他的默认值为 auto，如果和 width 属性同时设置一个值，flex-basis 会比较优先。当然工作中最好用 flex-basis，更符合规范。</p>
+<h1 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h1><p>该属性来设置，当父元素的宽度大于所有子元素的宽度的和时（即父元素会有剩余空间），子元素如何分配父元素的剩余空间。<br>flex-grow 的默认值为 0，意思是该元素不索取父元素的剩余空间，如果值大于 0，表示索取。值越大，索取的越厉害。</p>
+<p>例如:<br>父元素宽 400px，有两子元素：A 和 B。A 宽为 100px，B 宽为 200px。</p>
+<p>则空余空间为 400-（100+200）= 100px。</p>
+<p>如果 A，B 都不索取剩余空间，则有 100px 的空余空间。</p>
+<p>如果 A 索取剩余空间:设置 flex-grow 为 1，B 不索取。则最终 A 的大小为 自身宽度（100px）+ 剩余空间的宽度（100px）= 200px</p>
+<p>如果 A，B 都设索取剩余空间，A 设置 flex-grow 为 1，B 设置 flex-grow 为 2。<br>则最终 A 的大小为 自身宽度（100px）+ A 获得的剩余空间的宽度（100px * (1/(1+2))）<br>最终 B 的大小为 自身宽度（200px）+ B 获得的剩余空间的宽度（100px * (2/(1+2))）</p>
+<p>计算方式就是一共分成所有的 grow 只和份，每一个占用几分之几</p>
+<h1 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h1><p>该属性来设置，当父元素的宽度小于所有子元素的宽度的和时（即子元素会超出父元素），子元素如何缩小自己的宽度的。</p>
+<p>flex-shrink 的默认值为 1，当父元素的宽度小于所有子元素的宽度的和时，子元素的宽度会减小。值越大，减小的越厉害。如果值为 0，表示不减小。</p>
+<p>例如:<br>父元素宽 400px，有两子元素：A 和 B。A 宽为 200px，B 宽为 300px。</p>
+<p>则 A，B 总共超出父元素的宽度为(200+300)- 400 = 100px。</p>
+<p>如果 A，B 都不减小宽度，即都设置 flex-shrink 为 0，则会有 100px 的宽度超出父元素。</p>
+<p>如果 A 不减小宽度:设置 flex-shrink 为 0，B 减小。则最终 B 的大小为 自身宽度(300px)- 总共超出父元素的宽度(100px)= 200px</p>
+<p>如果 A，B 都减小宽度，A 设置 flex-shirk 为 3，B 设置 flex-shirk 为 2。<br>最终 A 的大小为 自身宽度(200px)- A 减小的宽度(100px * (200px * 3/(200 * 3 + 300 * 2))) = 150px<br>最终 B 的大小为 自身宽度(300px)- B 减小的宽度(100px * (300px * 2/(200 * 3 + 300 * 2))) = 250px</p>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>如果父级的空间足够：flex-grow 有效，flex-shrink 无效。</p>
+<p>如果父级的空间不够：flex-shrink 有效，flex-grow 无效。</p>
+<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><p><a href="https://www.jianshu.com/p/0642dfe0e571" target="_blank" rel="noopener">flex-grow、flex-shrink、flex-basis 详解</a><br><a href="https://segmentfault.com/a/1190000006741711" target="_blank" rel="noopener">深入理解 flex-grow &amp; flex-shrink &amp; flex-basis</a></p>
 
       
     </div>
@@ -427,8 +445,6 @@
           
             <a href="/tags/note/" rel="tag"># note</a>
           
-            <a href="/tags/node/" rel="tag"># node</a>
-          
         </div>
       
 
@@ -440,8 +456,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/26/Node-3/" rel="next" title="Node-3">
-                <i class="fa fa-chevron-left"></i> Node-3
+              <a href="/2019/12/06/使用npm-link或yarn-link/" rel="next" title="使用npm-link或yarn-link">
+                <i class="fa fa-chevron-left"></i> 使用npm-link或yarn-link
               </a>
             
           </div>
@@ -449,10 +465,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/30/js-函数/" rel="prev" title="js-函数">
-                js-函数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -617,7 +629,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Node-原生服务器搭建-简单版"><span class="nav-number">1.</span> <span class="nav-text">Node 原生服务器搭建(简单版)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#flex-basis"><span class="nav-number">1.</span> <span class="nav-text">flex-basis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#flex-grow"><span class="nav-number">2.</span> <span class="nav-text">flex-grow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#flex-shrink"><span class="nav-number">3.</span> <span class="nav-text">flex-shrink</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意"><span class="nav-number">4.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考："><span class="nav-number">5.</span> <span class="nav-text">参考：</span></a></li></ol></div>
             
 
           </div>
