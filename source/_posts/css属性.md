@@ -51,3 +51,52 @@ tags:
    ```
 
    [can i use](https://www.caniuse.com/#search=backface-visibility)
+
+2. user-select
+   
+   功能：可以使元素中的文字不被选中,在日常需求中,以一些需求会要求比如链接等地方的文字不可被选中，这个时候就可以使用这个属性
+
+
+   ```
+   <style>
+   a{
+      user-select: none;
+   }
+   </style>
+   </head>
+   <body>
+
+   <a href='#'>链接链接链接链接链接</a>
+
+   ```
+   该属性有三个值： none(不能被选中)  all(点击则选中全部)  auto(默认)
+   [can i use](https://www.caniuse.com/#search=user-select)
+
+3. pointer-events
+   
+   功能：This CSS property, when set to "none" allows elements to not receive hover/click events, instead the event will occur on anything behind it.
+
+   ```
+   <style>
+   div{
+      pointer-events: none;
+   }
+   div:hover{
+      color: orange;
+   }
+   </style>
+   </head>
+   <body>
+
+   <div>
+      链接：<a href='http://www.bilibili.com'>bilibili</a>
+   </div>
+
+   ```
+   注意点：
+
+   - pointer-events 的值为 none 时，如果元素上绝对定位，那在它下一层的元素可以被选中。
+   - pointer-events: none; 只是用来禁用鼠标的事件，通过其他方式绑定的事件还是会触发的，比如键盘事件等。
+   - 如果将一个元素的子元素 pointer-events 设置成其他值（比如：auto），那么当点击子元素时，还是会通过事件冒泡的形式出发父元素的事件。
+   
+   [can i use](https://www.caniuse.com/#search=pointer-events)
