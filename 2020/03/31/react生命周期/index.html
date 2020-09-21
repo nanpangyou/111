@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="这里是男胖友">
 <meta property="og:description" content="React 的生命周期React 组件生命周期的执行次数是什么样子的？ 只执行一次 : constructor、 componentWillMount、componentDidMount  执行多次 : render、 子组件的componentWillReceiveProp、componentWillUpdate、componentDidUpdate  有条件执行 : componentWill">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-31T02:36:43.542Z">
+<meta property="og:updated_time" content="2020-05-20T07:10:39.397Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react生命周期">
 <meta name="twitter:description" content="React 的生命周期React 组件生命周期的执行次数是什么样子的？ 只执行一次 : constructor、 componentWillMount、componentDidMount  执行多次 : render、 子组件的componentWillReceiveProp、componentWillUpdate、componentDidUpdate  有条件执行 : componentWill">
@@ -337,12 +337,24 @@
                 
               
 
-              <time title="创建时间：2020-03-31 10:06:14 / 修改时间：10:36:43" itemprop="dateCreated datePublished" datetime="2020-03-31T10:06:14+08:00">2020-03-31</time>
+              <time title="创建时间：2020-03-31 10:06:14" itemprop="dateCreated datePublished" datetime="2020-03-31T10:06:14+08:00">2020-03-31</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-05-20 15:10:39" itemprop="dateModified" datetime="2020-05-20T15:10:39+08:00">2020-05-20</time>
               
             
           </span>
@@ -396,6 +408,21 @@
 <p>如果只触发child的setState事件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">child： componentWillUpdate --&gt; render --&gt;  componentDidUpdate (child)</span><br></pre></td></tr></table></figure>
 <p>这个的执行顺序类似于压栈和出栈</p>
+<p>react 生命周期函数<br>初始化阶段：</p>
+<p>getDefaultProps:获取实例的默认属性</p>
+<p>getInitialState:获取每个实例的初始化状态</p>
+<p>componentWillMount：组件即将被装载、渲染到页面上</p>
+<p>render:组件在这里生成虚拟的 DOM 节点</p>
+<p>componentDidMount:组件真正在被装载之后</p>
+<p>运行中状态：</p>
+<p>componentWillReceiveProps:组件将要接收到属性的时候调用</p>
+<p>shouldComponentUpdate:组件接受到新属性或者新状态的时候（可以返回 false，接收数据后不更新，阻止 render 调用，后面的函数不会被继续执行了）</p>
+<p>componentWillUpdate:组件即将更新不能修改属性和状态</p>
+<p>render:组件重新描绘</p>
+<p>componentDidUpdate:组件已经更新</p>
+<p>销毁阶段：</p>
+<p>componentWillUnmount:组件即将销毁</p>
+<p>作者：e2ee31170666<br>链接：<a href="https://www.jianshu.com/p/712afe6360a6" target="_blank" rel="noopener">https://www.jianshu.com/p/712afe6360a6</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="https://www.cnblogs.com/soyxiaobi/p/9559117.html" target="_blank" rel="noopener">react的生命周期</a></li>
 </ul>
@@ -446,6 +473,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/12/踩坑记录/" rel="prev" title="踩坑记录">
+                踩坑记录 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -514,7 +545,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-count">35</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
