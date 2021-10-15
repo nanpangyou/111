@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Vim操作方式备忘 Command模式 分屏 :vs (vertical split), :sp(split) 全局替换 :% s/带替换内容/替换为/g  Visual模式 使用 v 进入 使用 V 选择行 使用 ctrl+v 方块选择  编辑模式 ctrl+h 删除上一个字符 ctrl+w 删除上一个单词 ctrl+u 删除当前行 (在终端下 ctrl+a 移动到行首  ctrl+e 移动到行">
+<meta name="keywords" content="博客 学习笔记 吐槽 树洞 笔记 学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vim备忘">
+<meta property="og:url" content="https://nanpangyou.github.io/2021/09/28/vim备忘/index.html">
+<meta property="og:site_name" content="这里是男胖友">
+<meta property="og:description" content="Vim操作方式备忘 Command模式 分屏 :vs (vertical split), :sp(split) 全局替换 :% s/带替换内容/替换为/g  Visual模式 使用 v 进入 使用 V 选择行 使用 ctrl+v 方块选择  编辑模式 ctrl+h 删除上一个字符 ctrl+w 删除上一个单词 ctrl+u 删除当前行 (在终端下 ctrl+a 移动到行首  ctrl+e 移动到行">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-10-15T09:41:59.320Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vim备忘">
+<meta name="twitter:description" content="Vim操作方式备忘 Command模式 分屏 :vs (vertical split), :sp(split) 全局替换 :% s/带替换内容/替换为/g  Visual模式 使用 v 进入 使用 V 选择行 使用 ctrl+v 方块选择  编辑模式 ctrl+h 删除上一个字符 ctrl+w 删除上一个单词 ctrl+u 删除当前行 (在终端下 ctrl+a 移动到行首  ctrl+e 移动到行">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://nanpangyou.github.io/2021/09/28/vim备忘/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>vim备忘 | 这里是男胖友</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">这里是男胖友</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">男胖友会瘦下来的</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://nanpangyou.github.io/2021/09/28/vim备忘/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="男胖友">
+      <meta itemprop="description" content="日常吐槽和生活记录 博客 学习笔记 吐槽 树洞 笔记 学习 前端 料理">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="这里是男胖友">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vim备忘
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-09-28 23:11:07" itemprop="dateCreated datePublished" datetime="2021-09-28T23:11:07+08:00">2021-09-28</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2021-10-15 17:41:59" itemprop="dateModified" datetime="2021-10-15T17:41:59+08:00">2021-10-15</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Vim操作方式备忘"><a href="#Vim操作方式备忘" class="headerlink" title="Vim操作方式备忘"></a>Vim操作方式备忘</h1><hr>
+<p>Command模式</p>
+<p>分屏</p>
+<p>:vs (vertical split), :sp(split)</p>
+<p>全局替换</p>
+<p>:% s/带替换内容/替换为/g</p>
+<hr>
+<p>Visual模式</p>
+<p>使用 v 进入</p>
+<p>使用 V 选择行</p>
+<p>使用 ctrl+v 方块选择</p>
+<hr>
+<p>编辑模式</p>
+<p>ctrl+h 删除上一个字符</p>
+<p>ctrl+w 删除上一个单词</p>
+<p>ctrl+u 删除当前行</p>
+<p>(在终端下 ctrl+a 移动到行首  ctrl+e 移动到行尾 ctrl+b 向前移动  ctrl+f 向后移动)</p>
+<hr>
+<p>快速切换从insert模式去normal模式</p>
+<p>除了esc还可以ctrl+c(有可能中断其他插件)还可以ctrl+[</p>
+<p>快速切换从noraml模式去insert模式</p>
+<p>使用 gi 快速跳转到你最后一次编辑的地方并进入插入模式</p>
+<hr>
+<h3 id="行间搜索移动"><a href="#行间搜索移动" class="headerlink" title="行间搜索移动"></a>行间搜索移动</h3><ul>
+<li>使用f{char}可以移动到 char 字符上，t{char}移动到 char 的前一个字符</li>
+<li>如果第一次没有搜到，可以用分号(;)/逗号(,)继续搜该行的上一个/下一个</li>
+<li>使用F表示反过来搜索前面的字符</li>
+</ul>
+<h3 id="vim的水平移动"><a href="#vim的水平移动" class="headerlink" title="vim的水平移动"></a>vim的水平移动</h3><ul>
+<li>0 移动到行首第一个字符，^ 移动到第一个非空白字符</li>
+<li>$ 移动到行尾，g_ 移动到行尾非空白字符</li>
+</ul>
+<h3 id="vim的页面移动"><a href="#vim的页面移动" class="headerlink" title="vim的页面移动"></a>vim的页面移动</h3><ul>
+<li>gg/G 移动到文件开头或者结尾， 使用 ctrl+o 快速返回</li>
+<li>使用 H/M/L 跳转到屏幕的 开头（Head） 中间（Middle） 结尾（Lower）</li>
+<li>Ctrl+u ctrl+f 上下翻页 （upword/forward） zz把屏幕置为中间</li>
+</ul>
+<h3 id="vim的快速修改"><a href="#vim的快速修改" class="headerlink" title="vim的快速修改"></a>vim的快速修改</h3><ul>
+<li>常用有三个，r(replace), c(change), s(substitute)</li>
+<li>在normal模式中 r 可以替换一个字符， s 替换并插入一个字符</li>
+<li>使用c配合文本对象，我们可以快速进行修改</li>
+</ul>
+<h3 id="vim的查询"><a href="#vim的查询" class="headerlink" title="vim的查询"></a>vim的查询</h3><ul>
+<li>使用/或者?来进行向前或者反向的搜索</li>
+<li>使用n/N跳转到下一个或者上一个匹配</li>
+<li>使用*/#进行当前光标单词的前向或者后项匹配</li>
+</ul>
+<h3 id="vim的替换命令"><a href="#vim的替换命令" class="headerlink" title="vim的替换命令"></a>vim的替换命令</h3><p>substitute命令允许我们查找并且替换掉文本，并且支持正则</p>
+<ul>
+<li>:[range] s[ubstitute]/{pattern}/{string}/[flags]</li>
+<li>range 表示范围 比如： 10,20 表示 10-20行，  % 表示全部</li>
+<li>pattern是要替换的模式，string是替换后的文本</li>
+</ul>
+<blockquote>
+<p>替换标志位<br>    g(global) 表示全局范围内执行<br>    c(comfirm) 表示确认， 可以确认或者拒绝修改<br>    n(number) 报告匹配到的次数而不替换，可以用来查询匹配次数</p>
+</blockquote>
+<h2 id="vim的多文件操作"><a href="#vim的多文件操作" class="headerlink" title="vim的多文件操作"></a>vim的多文件操作</h2><h3 id="Buffer-Window-Tab"><a href="#Buffer-Window-Tab" class="headerlink" title="Buffer Window Tab"></a>Buffer Window Tab</h3><ul>
+<li>Buffer是指打开的一个文件的内存缓冲区</li>
+<li>窗口是Buffer可视化的分割区域</li>
+<li>Tab 可以组织窗口为一个工作 区</li>
+</ul>
+<h3 id="Buffer-什么是缓冲区"><a href="#Buffer-什么是缓冲区" class="headerlink" title="Buffer - 什么是缓冲区"></a>Buffer - 什么是缓冲区</h3><ul>
+<li>vim 打开一个文件后会加载文件内容到缓冲区</li>
+<li>之后的修改都是针对内存中的缓冲区，并不会直接保存到文件里</li>
+<li>知道我们执行： w(write)的时候才会吧修改内容写入到文件里</li>
+</ul>
+<h3 id="如何进行buffer切换"><a href="#如何进行buffer切换" class="headerlink" title="如何进行buffer切换"></a>如何进行buffer切换</h3><ul>
+<li>使用:ls 会列举当前缓冲区，然后使用:b n跳转到第n个缓冲区</li>
+<li>:bpre :bnext :bfirst :blast</li>
+<li>或者:b buffer_name加上tab补全来跳转</li>
+</ul>
+<p>(在编辑的过程中可以使用<code>:e 文件名</code>来打开新的文件 edit)</p>
+<h3 id="Window-窗口是可视化的分割区域"><a href="#Window-窗口是可视化的分割区域" class="headerlink" title="Window - 窗口是可视化的分割区域"></a>Window - 窗口是可视化的分割区域</h3><ul>
+<li>一个缓冲区可以分割成多个窗口，每个窗口也可以打开不同的缓冲区</li>
+<li>&lt;ctrl+w&gt;s 水平分割, &lt;ctrl+w&gt;v 垂直分割，或者:sp和:vs</li>
+<li>每个窗口可以继续无限分割</li>
+</ul>
+<h3 id="如何切换窗口"><a href="#如何切换窗口" class="headerlink" title="如何切换窗口"></a>如何切换窗口</h3><p>切换窗口都是使用<code>ctrl+w</code>(window)作为前缀</p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;ctrl+w&gt;w</td>
+<td>在窗口间循环</td>
+</tr>
+<tr>
+<td>&lt;ctrl+w&gt;h</td>
+<td>切换到左边的窗口</td>
+</tr>
+<tr>
+<td>&lt;ctrl+w&gt;j</td>
+<td>切换到下边的窗口</td>
+</tr>
+<tr>
+<td>&lt;ctrl+w&gt;k</td>
+<td>切换到上边的窗口</td>
+</tr>
+<tr>
+<td>&lt;ctrl+w&gt;l</td>
+<td>切换到右边的窗口</td>
+</tr>
+<tr>
+<td>&lt;ctrl+w&gt;H</td>
+<td>移动当前窗口到左边</td>
+</tr>
+<tr>
+<td>&lt;ctrl+w&gt;J</td>
+<td>移动当前窗口到下面</td>
+</tr>
+<tr>
+<td>&lt;ctrl+w&gt;K</td>
+<td>移动当前窗口到上面</td>
+</tr>
+<tr>
+<td>&lt;ctrl+w&gt;L</td>
+<td>移动当前窗口到右边</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tab-标签页-，将窗口重组"><a href="#tab-标签页-，将窗口重组" class="headerlink" title="tab(标签页)，将窗口重组"></a>tab(标签页)，将窗口重组</h3><p>tab是可以容纳一系列窗口的容器（:h tabpage）</p>
+<h2 id="vim中的文本对象"><a href="#vim中的文本对象" class="headerlink" title="vim中的文本对象"></a>vim中的文本对象</h2><h3 id="文本对象的操作方式"><a href="#文本对象的操作方式" class="headerlink" title="文本对象的操作方式"></a>文本对象的操作方式</h3><ul>
+<li>[number]<command>[text object]</li>
+<li>number 表示次数，command 是命令，d(delete),c(change),y(yank) </li>
+<li>text object 是要操作的对象，比如单词w，句子s，段落p</li>
+</ul>
+<h2 id="vim的寄存器"><a href="#vim的寄存器" class="headerlink" title="vim的寄存器"></a>vim的寄存器</h2><p>Vim不使用单一剪贴板进行剪贴，复制和粘贴，而是多组寄存器</p>
+<ul>
+<li>通过 <code>&quot;{register}</code> 前缀可以指定寄存器，不指定默认用无名寄存器</li>
+<li>比如使用 <code>&quot;ayiw</code> 复制一个单词到寄存器a中，<code>&quot;bdd</code> 删除当前行到寄存器b中</li>
+<li>（可以用:reg a 查看a寄存器的内容）</li>
+<li>使用<code>&quot;ap</code>粘贴a寄存器中的内容</li>
+</ul>
+<h3 id="其他常见寄存器"><a href="#其他常见寄存器" class="headerlink" title="其他常见寄存器"></a>其他常见寄存器</h3><p>除了有名寄存器a-z，vim中还有其他寄存器</p>
+<ul>
+<li>复制专用寄存器 <code>&quot;0</code> 使用y复制文本的同时会被拷贝到复制寄存器0</li>
+<li>系统剪贴板 <code>&quot;+</code> 可以在复制前加上<code>&quot;+</code>复制到系统剪贴板 （需要使用 :echo has(‘clipboard’) 输出1来确保可以被系统使用）</li>
+<li>其他一些寄存器比如 <code>&quot;%</code>当前文件名， <code>&quot;.</code>上次插入的文本</li>
+</ul>
+<p><strong>可以使用<code>:set clipboard=unnamed</code>可以直接复制粘贴系统剪贴板的内容</strong></p>
+<h2 id="Vim中的宏"><a href="#Vim中的宏" class="headerlink" title="Vim中的宏"></a>Vim中的宏</h2><p>宏的使用分为录制和回放</p>
+<ul>
+<li>vim使用q来录制，同时也是q来结束录制（normal模式）</li>
+<li>使用q{register}选择要保存的寄存器，把录制的命令保存其中</li>
+<li>使用@{register}回放寄存器中保存的一系列命令</li>
+</ul>
+<p>(例如可以输入 :normal @a 对选中的部分回放宏)</p>
+<h2 id="vim补全"><a href="#vim补全" class="headerlink" title="vim补全"></a>vim补全</h2><p>vim中的补全方式<br>|命令|补全类型|<br>|—|—|<br>|\<ctrl-n>|普通关键字|<br>|\<ctrl-x>\<ctrl-n>|当前缓冲区关键字|<br>|\<ctrl-x>\<ctrl-i>|包含文件关键字|<br>|\<ctrl-x>\&lt;ctrl-]&gt;|标签文件关键字|<br>|\<ctrl-x>\<ctrl-k>|字典查找|<br>|\<ctrl-x>\<ctrl-l>|整行补全|<br>|\<ctrl-x>\<ctrl-f>|文件名补全|<br>|\<ctrl-x>\<ctrl-o>|全能（Omni）补全|</ctrl-o></ctrl-x></ctrl-f></ctrl-x></ctrl-l></ctrl-x></ctrl-k></ctrl-x></ctrl-x></ctrl-i></ctrl-x></ctrl-n></ctrl-x></ctrl-n></p>
+<h2 id="vim的映射"><a href="#vim的映射" class="headerlink" title="vim的映射"></a>vim的映射</h2><h3 id="基本映射"><a href="#基本映射" class="headerlink" title="基本映射"></a>基本映射</h3><p>基本映射指的是normal模式下的映射</p>
+<ul>
+<li>使用map就可以实现映射。比如:map - x 然后按-就可以删除字符</li>
+<li>:map <space> viw 告诉vim按下空格的时候选中整个单词</space></li>
+<li>:map <c-d> dd 可以使用ctrl+d执行dd删除一行</c-d></li>
+</ul>
+<h3 id="模式映射"><a href="#模式映射" class="headerlink" title="模式映射"></a>模式映射</h3><p>Vim常用模式Normal/Insert/Visual都可以定义映射</p>
+<ul>
+<li>用nmap/imap/vmap定义映射只在normal/insert/visual模式下分别有效</li>
+<li>:vmap \ U 把在visual模式下按下<code>\</code>选中的文本变为大写</li>
+<li>在insert模式下映射ctrl+d来删除一行  :imap <c-d> <esc>ddi</esc></c-d></li>
+</ul>
+<h3 id="递归与非递归映射"><a href="#递归与非递归映射" class="headerlink" title="递归与非递归映射"></a>递归与非递归映射</h3><p><strong>*map系列命令有递归的风险</strong><br>vim提供了非递归映射，这些命令不会递归解释</p>
+<ul>
+<li>使用nnoremap/vnoremap/inoremap</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/07/07/AsyncComponent/" rel="next" title="AsyncComponent">
+                <i class="fa fa-chevron-left"></i> AsyncComponent
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">男胖友</p>
+              <div class="site-description motion-element" itemprop="description">日常吐槽和生活记录 博客 学习笔记 吐槽 树洞 笔记 学习 前端 料理</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vim操作方式备忘"><span class="nav-number">1.</span> <span class="nav-text">Vim操作方式备忘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#行间搜索移动"><span class="nav-number">1.0.1.</span> <span class="nav-text">行间搜索移动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim的水平移动"><span class="nav-number">1.0.2.</span> <span class="nav-text">vim的水平移动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim的页面移动"><span class="nav-number">1.0.3.</span> <span class="nav-text">vim的页面移动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim的快速修改"><span class="nav-number">1.0.4.</span> <span class="nav-text">vim的快速修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim的查询"><span class="nav-number">1.0.5.</span> <span class="nav-text">vim的查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim的替换命令"><span class="nav-number">1.0.6.</span> <span class="nav-text">vim的替换命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim的多文件操作"><span class="nav-number">1.1.</span> <span class="nav-text">vim的多文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Buffer-Window-Tab"><span class="nav-number">1.1.1.</span> <span class="nav-text">Buffer Window Tab</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Buffer-什么是缓冲区"><span class="nav-number">1.1.2.</span> <span class="nav-text">Buffer - 什么是缓冲区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何进行buffer切换"><span class="nav-number">1.1.3.</span> <span class="nav-text">如何进行buffer切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Window-窗口是可视化的分割区域"><span class="nav-number">1.1.4.</span> <span class="nav-text">Window - 窗口是可视化的分割区域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何切换窗口"><span class="nav-number">1.1.5.</span> <span class="nav-text">如何切换窗口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tab-标签页-，将窗口重组"><span class="nav-number">1.1.6.</span> <span class="nav-text">tab(标签页)，将窗口重组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim中的文本对象"><span class="nav-number">1.2.</span> <span class="nav-text">vim中的文本对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文本对象的操作方式"><span class="nav-number">1.2.1.</span> <span class="nav-text">文本对象的操作方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim的寄存器"><span class="nav-number">1.3.</span> <span class="nav-text">vim的寄存器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#其他常见寄存器"><span class="nav-number">1.3.1.</span> <span class="nav-text">其他常见寄存器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vim中的宏"><span class="nav-number">1.4.</span> <span class="nav-text">Vim中的宏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim补全"><span class="nav-number">1.5.</span> <span class="nav-text">vim补全</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim的映射"><span class="nav-number">1.6.</span> <span class="nav-text">vim的映射</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本映射"><span class="nav-number">1.6.1.</span> <span class="nav-text">基本映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模式映射"><span class="nav-number">1.6.2.</span> <span class="nav-text">模式映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归与非递归映射"><span class="nav-number">1.6.3.</span> <span class="nav-text">递归与非递归映射</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">男胖友</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
